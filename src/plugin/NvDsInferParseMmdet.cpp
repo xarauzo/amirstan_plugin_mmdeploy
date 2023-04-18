@@ -100,10 +100,10 @@ extern "C" bool NvDsInferParseMmdet(
     }
   }
 
-  float *bboxes = (float *)outputLayersInfo[boxesLayerIndex].buffer;
-  float *classes = (float *)outputLayersInfo[classesLayerIndex].buffer;
-  float *scores = (float *)outputLayersInfo[scoresLayerIndex].buffer;
-  numDetsToParse = *(int *)(outputLayersInfo[numDetectionLayerIndex].buffer);
+  float *bboxes = (float *)outputLayersInfo[1].buffer;
+  float *classes = (float *)outputLayersInfo[3].buffer;
+  float *scores = (float *)outputLayersInfo[2].buffer;
+  numDetsToParse = *(int *)(outputLayersInfo[0].buffer);
 
   for (int indx = 0; indx < numDetsToParse; indx++)
   {
